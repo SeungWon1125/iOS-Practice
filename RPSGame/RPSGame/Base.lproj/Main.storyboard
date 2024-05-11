@@ -27,7 +27,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="U6B-dt-PFy">
-                                <rect key="frame" x="20" y="284" width="353" height="259"/>
+                                <rect key="frame" x="20" y="224" width="353" height="259"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Jv1-5o-hsr">
                                         <rect key="frame" x="0.0" y="0.0" width="169" height="259"/>
@@ -90,7 +90,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rVD-x0-JRw">
-                                <rect key="frame" x="20" y="583" width="353" height="111"/>
+                                <rect key="frame" x="20" y="523" width="353" height="111"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hdl-uD-6At">
                                         <rect key="frame" x="0.0" y="0.0" width="111" height="111"/>
@@ -131,7 +131,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ydf-MJ-Sgi">
-                                <rect key="frame" x="20" y="714" width="353" height="45"/>
+                                <rect key="frame" x="20" y="654" width="353" height="45"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oKL-GL-o3f">
                                         <rect key="frame" x="0.0" y="0.0" width="171.66666666666666" height="45"/>
@@ -163,7 +163,7 @@
                             <constraint firstItem="GdQ-mr-EXB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2zu-fd-AxE"/>
                             <constraint firstItem="ydf-MJ-Sgi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="4Lp-zb-MQd"/>
                             <constraint firstItem="rVD-x0-JRw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="5JQ-SY-Rhu"/>
-                            <constraint firstItem="U6B-dt-PFy" firstAttribute="top" secondItem="GdQ-mr-EXB" secondAttribute="bottom" constant="110" id="CKX-yX-3rP"/>
+                            <constraint firstItem="U6B-dt-PFy" firstAttribute="top" secondItem="GdQ-mr-EXB" secondAttribute="bottom" constant="50" id="CKX-yX-3rP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rVD-x0-JRw" secondAttribute="trailing" constant="20" id="DLg-FW-kXS"/>
                             <constraint firstItem="ydf-MJ-Sgi" firstAttribute="top" secondItem="rVD-x0-JRw" secondAttribute="bottom" constant="20" id="Lac-1S-gXi"/>
                             <constraint firstItem="U6B-dt-PFy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="NWO-nA-Q2p"/>

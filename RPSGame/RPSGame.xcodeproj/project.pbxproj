@@ -16,6 +16,7 @@
 		E3236E232BEF85940044B6B8 /* RPSGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3236E222BEF85940044B6B8 /* RPSGameTests.swift */; };
 		E3236E2D2BEF85940044B6B8 /* RPSGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3236E2C2BEF85940044B6B8 /* RPSGameUITests.swift */; };
 		E3236E2F2BEF85940044B6B8 /* RPSGameUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3236E2E2BEF85940044B6B8 /* RPSGameUITestsLaunchTests.swift */; };
+		E3236E3C2BEF96830044B6B8 /* RPS.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3236E3B2BEF96830044B6B8 /* RPS.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		E3236E282BEF85940044B6B8 /* RPSGameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RPSGameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3236E2C2BEF85940044B6B8 /* RPSGameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPSGameUITests.swift; sourceTree = "<group>"; };
 		E3236E2E2BEF85940044B6B8 /* RPSGameUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPSGameUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E3236E3B2BEF96830044B6B8 /* RPS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPS.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				E3236E0B2BEF85930044B6B8 /* AppDelegate.swift */,
 				E3236E0D2BEF85930044B6B8 /* SceneDelegate.swift */,
 				E3236E0F2BEF85930044B6B8 /* ViewController.swift */,
+				E3236E3B2BEF96830044B6B8 /* RPS.swift */,
 				E3236E112BEF85930044B6B8 /* Main.storyboard */,
 				E3236E142BEF85940044B6B8 /* Assets.xcassets */,
 				E3236E162BEF85940044B6B8 /* LaunchScreen.storyboard */,
@@ -259,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3236E102BEF85930044B6B8 /* ViewController.swift in Sources */,
+				E3236E3C2BEF96830044B6B8 /* RPS.swift in Sources */,
 				E3236E0C2BEF85930044B6B8 /* AppDelegate.swift in Sources */,
 				E3236E0E2BEF85930044B6B8 /* SceneDelegate.swift in Sources */,
 			);

@@ -1,0 +1,100 @@
+//
+//  SecondViewController.swift
+//  BMICalculator
+//
+//  Created by 김승원 on 5/25/24.
+//
+
+import UIKit
+
+class SecondViewController: UIViewController {
+    
+    // MARK: - Variables
+    
+    
+    
+    // MARK: - BMI 결과값
+    private lazy var BMILabel: UILabel = {
+        let lb = UILabel()
+        lb.text = "BMI 결과값"
+        lb.font = UIFont.systemFont(ofSize: 20, weight: .regular)
+        lb.textAlignment = .center
+        lb.textColor = .label
+        return lb
+    }()
+    
+    // MARK: - 가운데 결과 라벨
+    private lazy var resultLabel: UILabel = {
+        let lb = UILabel()
+        lb.text = "Loading..."
+        lb.font = UIFont.systemFont(ofSize: 22, weight: .medium)
+        lb.textColor = .label
+        lb.textAlignment = .center
+        lb.layer.cornerRadius = 5
+        lb.layer.masksToBounds = true
+        lb.backgroundColor = .red
+        return lb
+    }()
+    
+    // MARK: - 추가 라벨
+    private lazy var adviceLabel: UILabel = {
+        let lb = UILabel()
+        lb.text = "Loading..."
+        lb.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+        lb.textColor = .label
+        lb.textAlignment = .center
+        return lb
+    }()
+    
+    // MARK: - 스택뷰
+    private lazy var stackView: UIStackView = {
+        let sv = UIStackView()
+        sv.axis = .vertical
+        sv.spacing = 10
+        sv.alignment = .fill
+        sv.distribution = .fill
+        return sv
+    }()
+
+
+
+    
+    // MARK: - Life Cycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        setupUI()
+    }
+    
+    // MARK: - set up UI
+    private func setupUI() {
+        view.backgroundColor = .white
+        
+        stackView.addArrangedSubview(BMILabel)
+        stackView.addArrangedSubview(resultLabel)
+        stackView.addArrangedSubview(adviceLabel)
+        
+        view.addSubview(stackView)
+        
+        setupConstraints()
+    }
+    
+    // MARK: - set up Constraints
+    private func setupConstraints() {
+        resultLabel.translatesAutoresizingMaskIntoConstraints = false
+        resultLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 130).isActive = true
+        stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        stackView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        
+        
+    }
+    
+    // MARK: - Selectors
+    
+}
+
+// MARK: - Extensions
+

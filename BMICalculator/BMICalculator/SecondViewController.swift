@@ -10,6 +10,9 @@ import UIKit
 class SecondViewController: UIViewController {
     
     // MARK: - Variables
+    var bmiNumber: Double?
+    var adviceString: String?
+    var bmiColor: UIColor?
     
     
     
@@ -32,7 +35,7 @@ class SecondViewController: UIViewController {
         lb.textAlignment = .center
         lb.layer.cornerRadius = 5
         lb.layer.masksToBounds = true
-        lb.backgroundColor = .clear
+        lb.backgroundColor = .systemGray4
         return lb
     }()
     
@@ -59,10 +62,10 @@ class SecondViewController: UIViewController {
     // MARK: - 버튼
     private lazy var backButton: UIButton = {
         let btn = UIButton()
-        btn.setTitle("back", for: .normal)
+        btn.setTitle("다시 계산하기", for: .normal)
         btn.setTitleColor(.white, for: .normal)
         btn.backgroundColor = .systemBlue
-        btn.layer.cornerRadius = 5
+        btn.layer.cornerRadius = 10
         btn.layer.masksToBounds = true
         btn.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         return btn
@@ -74,6 +77,13 @@ class SecondViewController: UIViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        guard let bmi = bmiNumber else { return }
+        resultLabel.text = String(bmi)
+        
+        adviceLabel.text = adviceString
+        
+        resultLabel.backgroundColor = bmiColor
 
         setupUI()
     }

@@ -182,7 +182,7 @@ class ViewController: UIViewController {
         mainStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30).isActive = true
         
         nextVCButton.translatesAutoresizingMaskIntoConstraints = false
-        nextVCButton.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: 0).isActive = true
+        nextVCButton.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -30).isActive = true
         nextVCButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         nextVCButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.85).isActive = true
         nextVCButton.heightAnchor.constraint(equalToConstant: 45).isActive = true

@@ -56,6 +56,17 @@ class SecondViewController: UIViewController {
         return sv
     }()
 
+    // MARK: - 버튼
+    private lazy var backButton: UIButton = {
+        let btn = UIButton()
+        btn.setTitle("back", for: .normal)
+        btn.setTitleColor(.white, for: .normal)
+        btn.backgroundColor = .blue
+        btn.layer.cornerRadius = 5
+        btn.layer.masksToBounds = true
+        return btn
+    }()
+
 
 
     
@@ -76,6 +87,8 @@ class SecondViewController: UIViewController {
         
         view.addSubview(stackView)
         
+        view.addSubview(backButton)
+        
         setupConstraints()
     }
     
@@ -88,6 +101,12 @@ class SecondViewController: UIViewController {
         stackView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 130).isActive = true
         stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         stackView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+        backButton.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -30).isActive = true
+        backButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.85).isActive = true
+        backButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+        backButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
         
     }

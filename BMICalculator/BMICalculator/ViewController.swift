@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         let lb = UILabel()
         lb.text = "키와 몸무게를 입력해 주세요"
         lb.textColor = .label
-        lb.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+        lb.font = UIFont.systemFont(ofSize: 15, weight: .bold)
         lb.textAlignment = .center
         return lb
     }()
@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         let lb = UILabel()
         lb.text = "키"
         lb.textColor = .label
-        lb.font = UIFont.systemFont(ofSize: 18)
+        lb.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
 //        lb.backgroundColor = .yellow
         lb.textAlignment = .center
         return lb
@@ -68,7 +68,7 @@ class ViewController: UIViewController {
         let lb = UILabel()
         lb.text = "몸무게"
         lb.textColor = .label
-        lb.font = UIFont.systemFont(ofSize: 18)
+        lb.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
 //        lb.backgroundColor = .yellow
         lb.textAlignment = .center
         return lb
@@ -117,7 +117,7 @@ class ViewController: UIViewController {
         let btn = UIButton()
         btn.setTitle("다음", for: .normal)
         btn.setTitleColor(.white, for: .normal)
-        btn.backgroundColor = .blue
+        btn.backgroundColor = .systemBlue
         btn.layer.cornerRadius = 10
         btn.layer.masksToBounds = true
         btn.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
@@ -142,7 +142,7 @@ class ViewController: UIViewController {
     
     // MARK: - set up UI
     private func setupUI() {
-        view.backgroundColor = .gray
+        view.backgroundColor = .systemGray5
         
         mainStackView.addArrangedSubview(mainLabel)
         

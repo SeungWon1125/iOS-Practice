@@ -32,7 +32,7 @@ class SecondViewController: UIViewController {
         lb.textAlignment = .center
         lb.layer.cornerRadius = 5
         lb.layer.masksToBounds = true
-        lb.backgroundColor = .red
+        lb.backgroundColor = .clear
         return lb
     }()
     
@@ -61,7 +61,7 @@ class SecondViewController: UIViewController {
         let btn = UIButton()
         btn.setTitle("back", for: .normal)
         btn.setTitleColor(.white, for: .normal)
-        btn.backgroundColor = .blue
+        btn.backgroundColor = .systemBlue
         btn.layer.cornerRadius = 5
         btn.layer.masksToBounds = true
         btn.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)

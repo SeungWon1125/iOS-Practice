@@ -64,6 +64,7 @@ class SecondViewController: UIViewController {
         btn.backgroundColor = .blue
         btn.layer.cornerRadius = 5
         btn.layer.masksToBounds = true
+        btn.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         return btn
     }()
 
@@ -112,6 +113,10 @@ class SecondViewController: UIViewController {
     }
     
     // MARK: - Selectors
+    @objc private func backButtonTapped() {
+        print("backButton Tapped")
+        dismiss(animated: true, completion: nil)
+    }
     
 }
 

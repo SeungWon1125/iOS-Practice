@@ -10,9 +10,11 @@ import UIKit
 class SecondViewController: UIViewController {
     
     // MARK: - Variables
-    var bmiNumber: Double?
-    var adviceString: String?
-    var bmiColor: UIColor?
+//    var bmiNumber: Double?
+//    var adviceString: String?
+//    var bmiColor: UIColor?
+    
+    var bmi: BMI?
     
     
     
@@ -78,14 +80,14 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let bmi = bmiNumber else { return }
-        resultLabel.text = String(bmi)
-        
-        adviceLabel.text = adviceString
-        
-        resultLabel.backgroundColor = bmiColor
-
         setupUI()
+        
+        guard let bmiString = bmi?.value else { return }
+        resultLabel.text = String(bmiString)
+        
+        adviceLabel.text = bmi?.advice
+        
+        resultLabel.backgroundColor = bmi?.matchColor
     }
     
     // MARK: - set up UI

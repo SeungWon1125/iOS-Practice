@@ -200,15 +200,14 @@ class ViewController: UIViewController {
             mainLabel.textColor = .systemRed
         } else {
             guard let height = heightTextField.text, let weight = weightTextField.text else { return }
-            
-            bmiManager.calculateBMI(height: height, weight: weight)
-            
             let VC = SecondViewController()
             
             // 데이터 전달
-            VC.bmiNumber = bmiManager.getBMIResult()
-            VC.adviceString = bmiManager.getBMIAdviceString()
-            VC.bmiColor = bmiManager.getBackgroundColor()
+//            VC.bmiNumber = bmiManager.getBMIResult()
+//            VC.adviceString = bmiManager.getBMIAdviceString()
+//            VC.bmiColor = bmiManager.getBackgroundColor()
+            
+            VC.bmi = bmiManager.getBMI(height: height, weight: weight)
             
             VC.modalPresentationStyle = .fullScreen
             present(VC, animated: true, completion: nil)

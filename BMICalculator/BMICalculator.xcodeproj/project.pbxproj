@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E3B069EF2C032F5B000DF80C /* BMICalculatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B069EE2C032F5B000DF80C /* BMICalculatorManager.swift */; };
+		E3B069F12C033A10000DF80C /* BMI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B069F02C033A10000DF80C /* BMI.swift */; };
 		E3D734702C01E80A0079A4C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D7346F2C01E80A0079A4C7 /* AppDelegate.swift */; };
 		E3D734722C01E80A0079A4C7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D734712C01E80A0079A4C7 /* SceneDelegate.swift */; };
 		E3D734742C01E80A0079A4C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D734732C01E80A0079A4C7 /* ViewController.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		E3B069EE2C032F5B000DF80C /* BMICalculatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMICalculatorManager.swift; sourceTree = "<group>"; };
+		E3B069F02C033A10000DF80C /* BMI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMI.swift; sourceTree = "<group>"; };
 		E3D7346C2C01E80A0079A4C7 /* BMICalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BMICalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3D7346F2C01E80A0079A4C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3D734712C01E80A0079A4C7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 		E3B069EB2C032ECC000DF80C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E3B069F02C033A10000DF80C /* BMI.swift */,
 				E3B069EE2C032F5B000DF80C /* BMICalculatorManager.swift */,
 			);
 			path = Models;
@@ -292,6 +295,7 @@
 				E3D734702C01E80A0079A4C7 /* AppDelegate.swift in Sources */,
 				E3D734722C01E80A0079A4C7 /* SceneDelegate.swift in Sources */,
 				E3B069EF2C032F5B000DF80C /* BMICalculatorManager.swift in Sources */,
+				E3B069F12C033A10000DF80C /* BMI.swift in Sources */,
 				E3D734A22C01E9640079A4C7 /* SecondViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

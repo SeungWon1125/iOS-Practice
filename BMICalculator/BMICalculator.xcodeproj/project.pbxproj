@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E3B069EF2C032F5B000DF80C /* BMICalculatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B069EE2C032F5B000DF80C /* BMICalculatorManager.swift */; };
 		E3D734702C01E80A0079A4C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D7346F2C01E80A0079A4C7 /* AppDelegate.swift */; };
 		E3D734722C01E80A0079A4C7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D734712C01E80A0079A4C7 /* SceneDelegate.swift */; };
 		E3D734742C01E80A0079A4C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D734732C01E80A0079A4C7 /* ViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E3B069EE2C032F5B000DF80C /* BMICalculatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMICalculatorManager.swift; sourceTree = "<group>"; };
 		E3D7346C2C01E80A0079A4C7 /* BMICalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BMICalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3D7346F2C01E80A0079A4C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3D734712C01E80A0079A4C7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +80,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E3B069EB2C032ECC000DF80C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E3B069EE2C032F5B000DF80C /* BMICalculatorManager.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E3B069EC2C032EE2000DF80C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E3B069ED2C032EEC000DF80C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E3D734732C01E80A0079A4C7 /* ViewController.swift */,
+				E3D734A12C01E9640079A4C7 /* SecondViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		E3D734632C01E80A0079A4C7 = {
 			isa = PBXGroup;
 			children = (
@@ -103,8 +129,9 @@
 			children = (
 				E3D7346F2C01E80A0079A4C7 /* AppDelegate.swift */,
 				E3D734712C01E80A0079A4C7 /* SceneDelegate.swift */,
-				E3D734732C01E80A0079A4C7 /* ViewController.swift */,
-				E3D734A12C01E9640079A4C7 /* SecondViewController.swift */,
+				E3B069EB2C032ECC000DF80C /* Models */,
+				E3B069EC2C032EE2000DF80C /* Views */,
+				E3B069ED2C032EEC000DF80C /* Controllers */,
 				E3D734752C01E80A0079A4C7 /* Main.storyboard */,
 				E3D734782C01E80B0079A4C7 /* Assets.xcassets */,
 				E3D7347A2C01E80B0079A4C7 /* LaunchScreen.storyboard */,
@@ -264,6 +291,7 @@
 				E3D734742C01E80A0079A4C7 /* ViewController.swift in Sources */,
 				E3D734702C01E80A0079A4C7 /* AppDelegate.swift in Sources */,
 				E3D734722C01E80A0079A4C7 /* SceneDelegate.swift in Sources */,
+				E3B069EF2C032F5B000DF80C /* BMICalculatorManager.swift in Sources */,
 				E3D734A22C01E9640079A4C7 /* SecondViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

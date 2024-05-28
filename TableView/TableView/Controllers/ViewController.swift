@@ -20,9 +20,20 @@ class ViewController: UIViewController {
         
         tableView.delegate = self
         
+        self.title = "Movies"
+        
         // 데이터 생성
         movieDataManager.makeMovieData()
     }
+    
+    @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
+        
+        movieDataManager.updateMovieData()
+        // 데이터가 추가가 되면 TableView 리로드 필수!!
+        tableView.reloadData()
+        
+    }
+    
 }
 
 extension ViewController: UITableViewDataSource {
@@ -32,7 +43,8 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print(#function)
         let movieArray = movieDataManager.getMovieData()
-        return movieArray.count
+        let movieCount = movieArray.count
+        return movieCount
     }
     
     // 몇 번째에 있는 셀은 어떤 식으로 표현할지 (구체적으로 셀의 형태를 리턴)
@@ -40,6 +52,7 @@ extension ViewController: UITableViewDataSource {
         print(#function)
         
         // 기존에 만들어놨던 셀을 deque(꺼낸다)
+        // (힙에 올라간)재사용 가능한 cell을 꺼내서 사용하는 매서드 (애플이 이미 잘 만들어 놓음)
         let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell",
                                                  for: indexPath) // indexPath : 몇 번째 행에 있는 셀을 꺼낼 건지
                                                     as! MovieCell // MovieCell로 타입캐스팅하여 사용 (원래는 UITableViewCell로 나옴)
@@ -60,7 +73,7 @@ extension ViewController: UITableViewDataSource {
         cell.movieNameLabel.text = movie.movieName
         cell.descriptionLabel.text = movie.movieDescription
         
-//        cell.selectionStyle = .none
+        cell.selectionStyle = .none
         
         return cell
     }

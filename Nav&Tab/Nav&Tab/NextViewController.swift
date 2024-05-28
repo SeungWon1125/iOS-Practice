@@ -8,15 +8,36 @@
 import UIKit
 
 class NextViewController: UIViewController {
+    
+    private lazy var nextButton: UIButton = {
+        let btn = UIButton()
+        btn.setTitle("next", for: .normal)
+        btn.setTitleColor(.white, for: .normal)
+        btn.backgroundColor = .systemBlue
+        return btn
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemPink
+        
+        self.title = "Next"
 
-        // Do any additional setup after loading the view.
+        view.addSubview(nextButton)
+        nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
+        
+        nextButton.translatesAutoresizingMaskIntoConstraints = false
+        nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        nextButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        nextButton.widthAnchor.constraint(equalToConstant: 110).isActive = true
+        nextButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
     }
     
-
+    @objc private func nextButtonTapped() {
+        print(#function)
+        let vc = LastViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     /*
     // MARK: - Navigation
 

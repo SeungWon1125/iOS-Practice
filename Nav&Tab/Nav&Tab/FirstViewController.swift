@@ -36,7 +36,7 @@ class FirstViewController: UIViewController {
     
     // MARK: - set up UI
     private func setupUI() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .systemRed
         
         view.addSubview(nextButton)
         
@@ -58,13 +58,22 @@ class FirstViewController: UIViewController {
     // MARK: - set up NavigationBar
     private func setupNavigationBar() {
         let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground() // 색상 불투명
-        appearance.backgroundColor = .white
+        
+        appearance.configureWithDefaultBackground() // 반투명
+//        appearance.configureWithOpaqueBackground()
+        
+        UINavigationBar.appearance().isTranslucent = true
+        UINavigationBar.appearance().backgroundColor = .blue
         
         navigationController?.navigationBar.tintColor = .systemBlue // 버튼 색상
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.compactAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done",
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(doneButtonTapped))
         
         self.title = "Main"
     }
@@ -76,6 +85,11 @@ class FirstViewController: UIViewController {
         print(#function)
         let VC = NextViewController()
         self.navigationController?.pushViewController(VC, animated: true)
+        
+    }
+    
+    @objc private func doneButtonTapped() {
+        print(#function)
     }
 
 }

@@ -20,10 +20,38 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         
         // MARK: - 네비게이션 컨트롤러
-        let VC1 = UINavigationController(rootViewController: FirstViewController())
+        let mainViewController = FirstViewController()
+        let navigationController = UINavigationController(rootViewController: mainViewController)
         
-        window?.rootViewController = VC1
+        
+        // MARK: - 탭바 컨트롤러
+        let tabBarVC = UITabBarController()
+
+        let vc2 = SecondViewController()
+        let vc3 = ThirdViewController()
+        let vc4 = FourthViewController()
+        let vc5 = FifthViewController()
+        
+        vc2.title = "second"
+        vc3.title = "third"
+        vc4.title = "fourth"
+        vc5.title = "fifth"
+        
+        tabBarVC.setViewControllers([navigationController, vc2, vc3, vc4, vc5], animated: false)
+        tabBarVC.modalPresentationStyle = .fullScreen
+        tabBarVC.tabBar.backgroundColor = .white
+        
+        guard let items = tabBarVC.tabBar.items else { return }
+        items[0].image = UIImage(systemName: "trash")
+        items[1].image = UIImage(systemName: "folder")
+        items[2].image = UIImage(systemName: "paperplane")
+        items[3].image = UIImage(systemName: "doc")
+        items[4].image = UIImage(systemName: "note")
+        
+        window?.rootViewController = tabBarVC
         window?.makeKeyAndVisible()
+        
+
 
     }
 

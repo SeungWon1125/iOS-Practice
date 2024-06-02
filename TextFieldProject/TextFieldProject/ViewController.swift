@@ -38,6 +38,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         textField.placeholder = "이메일 입력+"
     }
     
+
+    
     // 텍스트필드의 입력을 시작할 때 호출 (입력을 시작할지 말지 여부를 허락하는 매서드)
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         print(#function)

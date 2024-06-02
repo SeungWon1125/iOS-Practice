@@ -91,9 +91,10 @@ extension MainViewController: UITableViewDataSource {
 
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let VC = DetailViewController()
+        let vc = DetailViewController()
         let movieArray = movieDataManager.getMovieData()
-        VC.movieData = movieArray[indexPath.row]
-        navigationController?.pushViewController(VC, animated: true)
+        let movie = movieArray[indexPath.row]
+        vc.movieData = movie
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

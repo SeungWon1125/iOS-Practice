@@ -32,7 +32,7 @@ struct Member {
     // 하지만 일부러 생성자 구현, 생성자 안에 논리를 구현하고 싶기 때문
     init(name: String? = nil, age: Int? = nil, phone: String? = nil, address: String? = nil) {
         // 0 일때는 0, 0이 아닐때는 타입저장속성의 절대적 값으로 세팅 (자동순번)
-        self.memberId = Member.memberNumbers == 0 ? 0 : Member.memberNumbers
+        self.memberId = Member.memberNumbers
         
         // 나머지 저장속성은 외부에서 세팅
         self.name = name

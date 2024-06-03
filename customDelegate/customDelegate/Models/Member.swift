@@ -7,6 +7,22 @@
 
 import UIKit
 
+// 프로토콜 만들기
+protocol MemberDelegate: AnyObject { // AnyObject: 클래스 에서만 채택을 할 수 있는 프로토콜로 만들기, 이렇게 해야 타입 선언시 weak으로 선언 가능
+    // 대리자가 할 수 있는 일을 정의
+    // 새로운 멤버 추가
+    func addNewMember(_ member: Member)
+    
+    // 정보 업데이트
+    func update(index: Int, _ member: Member)
+    
+    // 대리자에게 "이런 일이 일어났으니 너도 일을 해야해!"와 같은 느낌
+    // DetailView 자체가 TextField, TableView라고 생각해야 함
+    // DetailView에서 어떤 일이 발생하면 그 결과를
+    // ViewController에게 전달함
+    // 따라서 ViewController에서 프로토콜을 채택해야함
+}
+
 struct Member {
     
     // 멤버 사진

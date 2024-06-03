@@ -235,6 +235,13 @@ class DetailView: UIView {
         super.init(frame: frame)
         self.backgroundColor = .systemBackground
         setupStackView()
+        setupNotification()
+        setupMemberIdTextField()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.endEditing(true) // 1
+//        textField.resignFirstResponder() // 2
     }
     
     required init?(coder: NSCoder) {
@@ -245,7 +252,28 @@ class DetailView: UIView {
         self.addSubview(stackView)
     }
     
-    //MARK: - 오토레이아웃 셋팅
+    // 키보드 올라가는 거
+    func setupNotification() {
+        // 키보드가 올라오는 순간 알림을 주겠다.
+        // 관찰자는 self 즉 DetailView
+        // 알림이 오면 moveUpAction을 실행시킬 것
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(moveUpAction),
+                                               name: UIResponder.keyboardWillShowNotification,
+                                               object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(moveDownAction),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
+    }
+    
+    func setupMemberIdTextField() {
+        memberIdTextField.delegate = self
+    }
+    
+    // MARK: - 오토레이아웃 셋팅
     
     // 오토레이아웃 업데이트
     override func updateConstraints() {
@@ -283,4 +311,40 @@ class DetailView: UIView {
             stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20)
         ])
     }
+    
+    // MARK: - Selectors
+    @objc func moveUpAction() {
+        stackViewTopConstraint.constant = -20
+        UIView.animate(withDuration: 0.3) {
+            self.layoutIfNeeded()
+        }
+    }
+    
+    @objc func moveDownAction() {
+        stackViewTopConstraint.constant = 10
+        UIView.animate(withDuration: 0.2) {
+            self.layoutIfNeeded()
+        }
+    }
+    
+    // 키보드 내려가는 노티 소멸자 생성
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+
 }
+
+// MARK: - Extensions
+extension DetailView: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        // 멤버 아이디는 수정 못 하도록 설정
+        if textField == memberIdTextField {
+            return false
+        }
+        return true
+    }
+    
+    
+}
+

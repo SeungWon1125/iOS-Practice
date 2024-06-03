@@ -23,6 +23,8 @@ final class ViewController: UIViewController {
     private let tableView = UITableView()
 
 
+    // MARK: - Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,9 +36,9 @@ final class ViewController: UIViewController {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        tableView.reloadData()
+//    }
     // MARK: - set up NavigationBar
     func setupNavigationBar() {
         title = "회원 목록"
@@ -119,6 +121,10 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 다음 화면으로 넘어가는 코드
         let vc = DetailViewController()
+        // DetailView로 넘어가기 전에 DetailView의 대리자를
+        // 자기 자신인 ViewController로 설정
+        // 이렇게만 하면 강한순환참조가 일어남
+        vc.delegate = self
         
         vc.member = memberListManager.getMemberList()[indexPath.row]
         
@@ -126,3 +132,17 @@ extension ViewController: UITableViewDelegate {
     }
 }
 
+// MARK: - 커스텀 델리게이트
+extension ViewController: MemberDelegate {
+    func addNewMember(_ member: Member) {
+        memberListManager.makeNewMember(member)
+        tableView.reloadData()
+    }
+    
+    func update(index: Int, _ member: Member) {
+        memberListManager.updateMemberInfo(index: index, member)
+        tableView.reloadData()
+    }
+    
+    
+}

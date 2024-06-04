@@ -15,7 +15,7 @@ final class DetailViewController: UIViewController {
 
     private let detailView = DetailView()
     
-    // 데리자 변수 설정
+    // 대리자 변수 설정
     weak var delegate: MemberDelegate? // weak으로 선언하기 위해 프로토콜을 AnyObject참조
     
     

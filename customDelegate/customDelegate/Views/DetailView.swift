@@ -252,7 +252,7 @@ class DetailView: UIView {
         self.addSubview(stackView)
     }
     
-    // 키보드 올라가는 거
+    // MARK: - set up Notification
     func setupNotification() {
         // 키보드가 올라오는 순간 알림을 주겠다.
         // 관찰자는 self 즉 DetailView
@@ -269,6 +269,7 @@ class DetailView: UIView {
                                                object: nil)
     }
     
+    // MARK: - set up Member Id TextField
     func setupMemberIdTextField() {
         memberIdTextField.delegate = self
     }

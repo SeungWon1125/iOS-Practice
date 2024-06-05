@@ -127,7 +127,22 @@ extension ViewController: UITableViewDelegate {
         let member = memberArray[indexPath.row]
         
         vc.member = member
+        vc.delegate = self
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
+// customDelegate
+extension ViewController: MemberDelegate {
+    func addNewMember(_ member: Member) {
+        dataManager.makeNewMember(member)
+        tableView.reloadData()
+    }
+    
+    func updateMember(index: Int, _ member: Member) {
+        dataManager.updateMemberInfo(index: index, member)
+        tableView.reloadData()
+    }
+    
+    
+}

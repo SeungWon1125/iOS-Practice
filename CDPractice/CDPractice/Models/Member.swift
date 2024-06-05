@@ -7,6 +7,12 @@
 
 import UIKit
 
+protocol MemberDelegate: AnyObject {
+    func addNewMember(_ member: Member)
+    
+    func updateMember(index: Int, _ member: Member)
+}
+
 struct Member {
     static var memberNumbers: Int = 0
     

@@ -98,7 +98,7 @@ final class ViewController: UIViewController {
 
 }
 
-// MARK: - UITableViewDataSource
+// MARK: - UITableView DataSource
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -117,6 +117,7 @@ extension ViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - UITableView Delegate
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 다음 화면으로 넘어가는 코드

@@ -9,7 +9,15 @@ import UIKit
 
 struct Member {
     static var memberNumbers: Int = 0
-    var memberImage: UIImage?
+    lazy var memberImage: UIImage? = {
+        // 이름이 없다면, 시스템 사람 이미지로 세팅
+        guard let name = name else {
+            return UIImage(systemName: "person")
+        }
+        
+        return UIImage(named: "\(name).png") ?? UIImage(systemName: "person")
+    }()
+    
     let memberId: Int
     var name: String?
     var age: Int?
@@ -19,7 +27,6 @@ struct Member {
     init(memberImage: UIImage? = nil, name: String? = nil, age: Int? = nil, phone: String? = nil, address: String? = nil) {
         self.memberId = Member.memberNumbers
         
-        self.memberImage = memberImage
         self.name = name
         self.age = age
         self.phone = phone

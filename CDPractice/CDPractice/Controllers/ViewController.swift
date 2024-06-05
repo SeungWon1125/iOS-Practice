@@ -37,7 +37,14 @@ class ViewController: UIViewController {
     private func setupTableView() {
         tableView.rowHeight = 60
         tableView.dataSource = self
+        tableView.delegate = self
+        
+        
+        // 테이블 뷰 제약조건
         setupTableViewConstraints()
+        
+        // 테이블 뷰 등록
+        tableView.register(MemberCell.self, forCellReuseIdentifier: "MemberCell")
         
     }
     // MARK: - set up UI
@@ -58,7 +65,7 @@ class ViewController: UIViewController {
 }
 
 // MARK: - Extensions
-// dataSource
+// tableView 데이터소스
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let memberArray = dataManager.getMemberList()
@@ -67,7 +74,26 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MemberCell", for: indexPath) as! MemberCell
+        
+        let memberArray = dataManager.getMemberList()
+        var member = memberArray[indexPath.row]
+        
+        cell.mainImageView.image = member.memberImage
+        cell.memberNameLabel.text = member.name
+        cell.addressLabel.text = member.address
+        cell.selectionStyle = .none
+        
+        return cell
+    }
+}
+
+// tableView 델리게이트
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("\(indexPath.row) cell Tapped")
+        let vc = DetailViewController()        
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

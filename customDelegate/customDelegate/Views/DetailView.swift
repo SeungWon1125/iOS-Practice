@@ -235,6 +235,7 @@ class DetailView: UIView {
         super.init(frame: frame)
         self.backgroundColor = .systemBackground
         setupStackView()
+        setConstraints()
         setupNotification()
         setupMemberIdTextField()
     }
@@ -277,10 +278,10 @@ class DetailView: UIView {
     // MARK: - 오토레이아웃 셋팅
     
     // 오토레이아웃 업데이트
-    override func updateConstraints() {
-        setConstraints()
-        super.updateConstraints()
-    }
+//    override func updateConstraints() {
+//        setConstraints()
+//        super.updateConstraints()
+//    }
     
     func setConstraints() {
         

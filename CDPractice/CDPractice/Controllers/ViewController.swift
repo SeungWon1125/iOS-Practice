@@ -7,12 +7,18 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
     // MARK: - Variables
     let dataManager = MemberListManager()
     
     // MARK: - TableView
     private let tableView = UITableView()
+    
+    // MARK: - plucButton
+    lazy var plusButton: UIBarButtonItem = {
+        let btn = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(plusButtonTapped))
+        return btn
+    }()
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -23,6 +29,12 @@ class ViewController: UIViewController {
         setupTableView()
         setupNavigationBar()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     // MARK: - set up Data
     private func setupData() {
         dataManager.makeMembersListDatas()
@@ -30,7 +42,17 @@ class ViewController: UIViewController {
     
     // MARK: - set up NavigationBar
     private func setupNavigationBar() {
-        self.title = "프로필"
+        self.title = "회원 목록"
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .white
+        
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        
+        self.navigationItem.rightBarButtonItem = self.plusButton
     }
     
     // MARK: - set up TableView
@@ -62,6 +84,13 @@ class ViewController: UIViewController {
         tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0).isActive = true
         
     }
+    
+    // MARK: - Selectors
+    @objc private func plusButtonTapped() {
+        print(#function)
+        let vc = DetailViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 // MARK: - Extensions
@@ -92,7 +121,12 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("\(indexPath.row) cell Tapped")
-        let vc = DetailViewController()        
+        
+        let vc = DetailViewController()
+        let memberArray = dataManager.getMemberList()
+        let member = memberArray[indexPath.row]
+        
+        vc.member = member
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

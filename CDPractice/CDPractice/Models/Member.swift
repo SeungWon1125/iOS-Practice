@@ -9,6 +9,7 @@ import UIKit
 
 struct Member {
     static var memberNumbers: Int = 0
+    
     lazy var memberImage: UIImage? = {
         // 이름이 없다면, 시스템 사람 이미지로 세팅
         guard let name = name else {
@@ -24,7 +25,7 @@ struct Member {
     var phone: String?
     var address: String?
     
-    init(memberImage: UIImage? = nil, name: String? = nil, age: Int? = nil, phone: String? = nil, address: String? = nil) {
+    init(name: String? = nil, age: Int? = nil, phone: String? = nil, address: String? = nil) {
         self.memberId = Member.memberNumbers
         
         self.name = name

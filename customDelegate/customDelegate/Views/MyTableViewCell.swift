@@ -21,6 +21,7 @@ class MyTableViewCell: UITableViewCell {
         }
     }
     
+    
     // MARK: - UI Components
     // 사진
     let mainImageView: UIImageView = {

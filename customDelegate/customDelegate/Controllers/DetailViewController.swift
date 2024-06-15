@@ -73,6 +73,7 @@ final class DetailViewController: UIViewController {
         
         // [1] 멤버가 없다면 (새로운 멤버를 추가하는 화면)
         if member == nil {
+            print("new member")
             // 입력이 안되어 있다면.. (일반적으로) 빈문자열로 저장
             let name = detailView.nameTextField.text ?? ""
             let age = Int(detailView.ageTextField.text ?? "")
@@ -98,6 +99,7 @@ final class DetailViewController: UIViewController {
             // 커스텀 델리게이트는 직접적으로 호출해야 함
             // 이 코드를 타면 전화면(ViewController)에서 채택한 델리게이트에서
             // addNewMember()함수가 실행된다.
+            print("new member added")
             
             
         // [2] 멤버가 있다면 (멤버의 내용을 업데이트 하기 위한 설정)

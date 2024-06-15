@@ -127,7 +127,8 @@ extension ViewController: UITableViewDelegate {
         // 이렇게만 하면 강한순환참조가 일어남
         vc.delegate = self
         
-        vc.member = memberListManager.getMemberList()[indexPath.row]
+        let array = memberListManager.getMemberList()
+        vc.member = array[indexPath.row]
         
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -136,11 +137,13 @@ extension ViewController: UITableViewDelegate {
 // MARK: - 커스텀 델리게이트
 extension ViewController: MemberDelegate {
     func addNewMember(_ member: Member) {
+        print(#function)
         memberListManager.makeNewMember(member)
         tableView.reloadData()
     }
     
     func update(index: Int, _ member: Member) {
+        print(#function)
         memberListManager.updateMemberInfo(index: index, member)
         tableView.reloadData()
     }

@@ -31,6 +31,7 @@ final class MemberListManager {
     
     // 새로운 멤버 만들기
     func makeNewMember(_ member: Member) {
+        print("hhhh")
         memberList.append(member)
     }
     

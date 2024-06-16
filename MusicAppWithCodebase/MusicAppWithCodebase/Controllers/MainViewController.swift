@@ -25,6 +25,11 @@ final class MainViewController: UIViewController {
 
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        setupNavigationBar()
+    }
+    
     // MARK: - Set up Data
     func setupData() {
         print(#function)
@@ -42,7 +47,7 @@ final class MainViewController: UIViewController {
     
     // MARK: - Set up NavigationBar & SearchBar
     func setupNavigationBar() {
-        self.title = "Music Search"
+        self.title = "Music"
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = .white
@@ -83,7 +88,7 @@ final class MainViewController: UIViewController {
         tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
     }
 }
-// MARK: - Extensions
+// MARK: - TableView DataSource
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let musicCount = self.musicArray.count
@@ -106,12 +111,21 @@ extension MainViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - TableView Delegate
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let music = musicArray[indexPath.row]
+        let vc = DetailViewController()
+        vc.music = music
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
+// MARK: - SearchBar Delegate
 extension MainViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print(searchText)
@@ -165,6 +179,7 @@ extension MainViewController: UISearchBarDelegate {
         }
         self.view.endEditing(true)
     }
+    
 }
 
 //extension MainViewController: UISearchResultsUpdating {

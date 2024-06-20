@@ -27,7 +27,7 @@ class DetailViewController: UIViewController {
     // MARK: - Set up NavigationBar
     func setupNavigationBar() {
         self.title = "Infomation"
-        navigationController?.navigationBar.prefersLargeTitles = false
+//        navigationController?.navigationBar.prefersLargeTitles = false
         
     }
     

@@ -21,6 +21,12 @@ class ViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
     // MARK: - Set up NavigationBar
     func setupNavigationBar() {
         self.title = "메모"
@@ -34,16 +40,21 @@ class ViewController: UIViewController {
         navigationController?.navigationBar.compactAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationController?.navigationBar.prefersLargeTitles = true
+        
+        // 네비게이션바 우측에 Plus 버튼 만들기
+        let plusButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(plusButtonTapped))
+        plusButton.tintColor = .black
+        navigationItem.rightBarButtonItem = plusButton
     }
     
     // MARK: - Set Up TableView
     func setupTableView() {
         self.view.backgroundColor = .systemBackground
-        
-        // tableView
+    
+        tableView.register(ToDoCell.self, forCellReuseIdentifier: Cell.ToDoCellIdentifier)
         self.view.addSubview(tableView)
         tableView.dataSource = self
-        tableView.delegate = self
+//        tableView.delegate = self
         
         setupTableViewConstrains()
     }
@@ -57,24 +68,32 @@ class ViewController: UIViewController {
         tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0).isActive = true
         
     }
-
+    
+    // MARK: - Selectors
+    @objc func plusButtonTapped() {
+        print(#function)
+        let vc = DetailViewViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
 
 
 // MARK: - TableView DataSource
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: Cell.ToDoCellIdentifier, for: indexPath) as! ToDoCell
+        return cell
     }
 }
 
 // MARK: - TableView Delegate
-extension ViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        200
-    }
-}
+//extension ViewController: UITableViewDelegate {
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        200
+//    }
+//}

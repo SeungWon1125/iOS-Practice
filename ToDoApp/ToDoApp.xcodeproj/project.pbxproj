@@ -11,6 +11,8 @@
 		E37A31892C243F4B001466F2 /* DetailViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37A31882C243F4B001466F2 /* DetailViewViewController.swift */; };
 		E37A318B2C2443AA001466F2 /* ToDoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37A318A2C2443AA001466F2 /* ToDoCell.swift */; };
 		E37A318D2C24480A001466F2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37A318C2C24480A001466F2 /* Constants.swift */; };
+		E37FC2022C247C9E0057DC15 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37FC2012C247C9E0057DC15 /* DetailView.swift */; };
+		E37FC2042C247CF70057DC15 /* MyColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37FC2032C247CF70057DC15 /* MyColor.swift */; };
 		E3AA6F042C22E8380076C2B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AA6F032C22E8380076C2B9 /* AppDelegate.swift */; };
 		E3AA6F062C22E8380076C2B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AA6F052C22E8380076C2B9 /* SceneDelegate.swift */; };
 		E3AA6F082C22E8380076C2B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AA6F072C22E8380076C2B9 /* ViewController.swift */; };
@@ -46,6 +48,8 @@
 		E37A31882C243F4B001466F2 /* DetailViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewViewController.swift; sourceTree = "<group>"; };
 		E37A318A2C2443AA001466F2 /* ToDoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoCell.swift; sourceTree = "<group>"; };
 		E37A318C2C24480A001466F2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E37FC2012C247C9E0057DC15 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		E37FC2032C247CF70057DC15 /* MyColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyColor.swift; sourceTree = "<group>"; };
 		E3AA6F002C22E8380076C2B9 /* ToDoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3AA6F032C22E8380076C2B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3AA6F052C22E8380076C2B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -155,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				E37A318A2C2443AA001466F2 /* ToDoCell.swift */,
+				E37FC2012C247C9E0057DC15 /* DetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -173,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				E37A318C2C24480A001466F2 /* Constants.swift */,
+				E37FC2032C247CF70057DC15 /* MyColor.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -312,6 +318,8 @@
 				E3AA6F082C22E8380076C2B9 /* ViewController.swift in Sources */,
 				E3AA6F042C22E8380076C2B9 /* AppDelegate.swift in Sources */,
 				E3AA6F062C22E8380076C2B9 /* SceneDelegate.swift in Sources */,
+				E37FC2042C247CF70057DC15 /* MyColor.swift in Sources */,
+				E37FC2022C247C9E0057DC15 /* DetailView.swift in Sources */,
 				E37A318D2C24480A001466F2 /* Constants.swift in Sources */,
 				E37A31872C243ABE001466F2 /* CoreDataManager.swift in Sources */,
 				E37A31892C243F4B001466F2 /* DetailViewViewController.swift in Sources */,

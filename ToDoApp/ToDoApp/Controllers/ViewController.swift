@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupUI()
         setupTableView()
         setupNavigationBar()
         
@@ -47,14 +48,19 @@ class ViewController: UIViewController {
         navigationItem.rightBarButtonItem = plusButton
     }
     
+    // MARK: - Set up UI
+    func setupUI() {
+        self.view.backgroundColor = .systemBackground
+    }
+    
     // MARK: - Set Up TableView
     func setupTableView() {
-        self.view.backgroundColor = .systemBackground
-    
         tableView.register(ToDoCell.self, forCellReuseIdentifier: Cell.ToDoCellIdentifier)
         self.view.addSubview(tableView)
         tableView.dataSource = self
 //        tableView.delegate = self
+        
+        tableView.separatorStyle = .none
         
         setupTableViewConstrains()
     }

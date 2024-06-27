@@ -10,6 +10,7 @@
 		E3A863462C2D69BB009CD883 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E3A863452C2D69BB009CD883 /* SnapKit */; };
 		E3A863482C2D6B3C009CD883 /* MyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A863472C2D6B3C009CD883 /* MyCell.swift */; };
 		E3A8634A2C2D734E009CD883 /* MyNewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A863492C2D734E009CD883 /* MyNewCell.swift */; };
+		E3A8634C2C2D7FAF009CD883 /* innerCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A8634B2C2D7FAF009CD883 /* innerCVCell.swift */; };
 		E3CCEAED2C26B61700634108 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CCEAEC2C26B61700634108 /* AppDelegate.swift */; };
 		E3CCEAEF2C26B61700634108 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CCEAEE2C26B61700634108 /* SceneDelegate.swift */; };
 		E3CCEAF12C26B61700634108 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CCEAF02C26B61700634108 /* ViewController.swift */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		E3A863472C2D6B3C009CD883 /* MyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCell.swift; sourceTree = "<group>"; };
 		E3A863492C2D734E009CD883 /* MyNewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNewCell.swift; sourceTree = "<group>"; };
+		E3A8634B2C2D7FAF009CD883 /* innerCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = innerCVCell.swift; sourceTree = "<group>"; };
 		E3CCEAE92C26B61700634108 /* CollectionViewPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollectionViewPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3CCEAEC2C26B61700634108 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3CCEAEE2C26B61700634108 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				E3CCEAEE2C26B61700634108 /* SceneDelegate.swift */,
 				E3A863472C2D6B3C009CD883 /* MyCell.swift */,
 				E3A863492C2D734E009CD883 /* MyNewCell.swift */,
+				E3A8634B2C2D7FAF009CD883 /* innerCVCell.swift */,
 				E3CCEAF02C26B61700634108 /* ViewController.swift */,
 				E3CCEAF52C26B61800634108 /* Assets.xcassets */,
 				E3CCEAF72C26B61800634108 /* LaunchScreen.storyboard */,
@@ -273,6 +276,7 @@
 				E3A863482C2D6B3C009CD883 /* MyCell.swift in Sources */,
 				E3CCEAED2C26B61700634108 /* AppDelegate.swift in Sources */,
 				E3CCEAEF2C26B61700634108 /* SceneDelegate.swift in Sources */,
+				E3A8634C2C2D7FAF009CD883 /* innerCVCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

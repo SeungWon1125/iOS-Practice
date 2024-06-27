@@ -48,6 +48,7 @@ class ViewController: UIViewController {
         // 셀 등록
         firstCollectionView.register(MyCell.self, forCellWithReuseIdentifier: "Cell")
         secondCollectionView.register(MyNewCell.self, forCellWithReuseIdentifier: "newCell")
+        secondCollectionView.register(innerCVCell.self, forCellWithReuseIdentifier: "innerCell")
         
         setupCollectionViewContraints()
     }
@@ -73,7 +74,7 @@ extension ViewController: UICollectionViewDataSource {
         if collectionView == firstCollectionView {
             return 10
         } else {
-            return 18
+            return 19
         }
     }
     
@@ -86,9 +87,14 @@ extension ViewController: UICollectionViewDataSource {
             return cell
         } else {
             let cell = secondCollectionView.dequeueReusableCell(withReuseIdentifier: "newCell", for: indexPath) as! MyNewCell
-            cell.layer.masksToBounds = true
-            cell.layer.cornerRadius = 15
-            return cell
+            if indexPath.row == 0 {
+                let cell = secondCollectionView.dequeueReusableCell(withReuseIdentifier: "innerCell", for: indexPath) as! innerCVCell
+                return cell
+            } else {
+                cell.layer.masksToBounds = true
+                cell.layer.cornerRadius = 15
+                return cell
+            }
         }
     }
 }
@@ -116,9 +122,15 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
             let itemSize = CGSize(width: cellHeight, height: cellHeight)
             return itemSize
         } else {
-            let cellWidth = (view.frame.width - (10 * 2)) / 3
-            let itemSize = CGSize(width: cellWidth, height: cellWidth)
-            return itemSize
+            if indexPath.row == 0 {
+                let cellWidth = view.frame.width
+                let itemSize = CGSize(width: cellWidth, height: 100)
+                return itemSize
+            } else {
+                let cellWidth = (view.frame.width - (10 * 2)) / 3
+                let itemSize = CGSize(width: cellWidth, height: cellWidth)
+                return itemSize
+            }
         }
     }
 }

@@ -35,14 +35,19 @@ class ViewController: UIViewController {
     // MARK: - Set up CollectionView
     private func setupCollectionView() {
         self.view.addSubview(firstCollectionView)
-        firstCollectionView.backgroundColor = .yellow
+        self.view.addSubview(secondCollectionView)
         
         firstCollectionView.dataSource = self
         firstCollectionView.delegate = self
         firstCollectionView.showsHorizontalScrollIndicator = false
         
+        secondCollectionView.dataSource = self
+        secondCollectionView.delegate = self
+        secondCollectionView.showsVerticalScrollIndicator = false
+        
         // 셀 등록
         firstCollectionView.register(MyCell.self, forCellWithReuseIdentifier: "Cell")
+        secondCollectionView.register(MyNewCell.self, forCellWithReuseIdentifier: "newCell")
         
         setupCollectionViewContraints()
     }
@@ -55,32 +60,66 @@ class ViewController: UIViewController {
             make.top.equalTo(view.snp.top).offset(150)
         }
         
+        secondCollectionView.snp.makeConstraints { make in
+            make.top.equalTo(firstCollectionView.snp.bottom).offset(10)
+            make.leading.bottom.trailing.equalToSuperview()
+        }
+        
     }
 }
 
 extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        if collectionView == firstCollectionView {
+            return 10
+        } else {
+            return 18
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = firstCollectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! MyCell
-        cell.backgroundColor = .gray
-        cell.layer.masksToBounds = true
-        cell.layer.cornerRadius = 15
-        return cell
+        if collectionView == firstCollectionView {
+            let cell = firstCollectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! MyCell
+//            cell.backgroundColor = .gray
+            cell.layer.masksToBounds = true
+            cell.layer.cornerRadius = 15
+            return cell
+        } else {
+            let cell = secondCollectionView.dequeueReusableCell(withReuseIdentifier: "newCell", for: indexPath) as! MyNewCell
+            cell.layer.masksToBounds = true
+            cell.layer.cornerRadius = 15
+            return cell
+        }
     }
 }
 
 extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+        if collectionView == firstCollectionView {
+            return 10
+        } else {
+            return 10
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        if collectionView == firstCollectionView {
+            return 0
+        } else {
+            return 10
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellHeight = firstCollectionView.frame.height
-        let itemSize = CGSize(width: cellHeight, height: cellHeight)
-        return itemSize
+        if collectionView == firstCollectionView {
+            let cellHeight = firstCollectionView.frame.height
+            let itemSize = CGSize(width: cellHeight, height: cellHeight)
+            return itemSize
+        } else {
+            let cellWidth = (view.frame.width - (10 * 2)) / 3
+            let itemSize = CGSize(width: cellWidth, height: cellWidth)
+            return itemSize
+        }
     }
 }
 

@@ -10,7 +10,7 @@ import UIKit
 class MyNewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .systemPink
+        self.backgroundColor = .systemBlue
     }
     
     required init?(coder: NSCoder) {

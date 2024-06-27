@@ -6,62 +6,81 @@
 //
 
 import UIKit
+import SnapKit
 
 class ViewController: UIViewController {
     // MARK: - Variables
-    private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    private let firstCollectionView: UICollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .horizontal
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        return cv
+    }()
+    
+    private let secondCollectionView: UICollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .vertical
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        return cv
+    }()
 
     // MARK: - Life Cycle ⭐️
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .red
+        self.view.backgroundColor = .systemBackground
         
         setupCollectionView()
     }
     
     // MARK: - Set up CollectionView
-    func setupCollectionView() {
-        self.view.addSubview(collectionView)
+    private func setupCollectionView() {
+        self.view.addSubview(firstCollectionView)
+        firstCollectionView.backgroundColor = .yellow
         
-        collectionView.backgroundColor = .blue
-        collectionView.dataSource = self
-        collectionView.delegate = self
+        firstCollectionView.dataSource = self
+        firstCollectionView.delegate = self
+        firstCollectionView.showsHorizontalScrollIndicator = false
         
         // 셀 등록
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        firstCollectionView.register(MyCell.self, forCellWithReuseIdentifier: "Cell")
         
         setupCollectionViewContraints()
     }
     
-    func setupCollectionViewContraints() {
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
-        collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0).isActive = true
-        collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0).isActive = true
+    private func setupCollectionViewContraints() {
+        firstCollectionView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(150)
+            make.centerX.equalToSuperview()
+            make.top.equalTo(view.snp.top).offset(150)
+        }
         
     }
 }
 
-// MARK: - CollectionView DataSource
 extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
-        cell.backgroundColor = .red
+        let cell = firstCollectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! MyCell
+        cell.backgroundColor = .gray
+        cell.layer.masksToBounds = true
+        cell.layer.cornerRadius = 15
         return cell
     }
 }
 
-// MARK: - CollectionView Delegate FlowLayout
 extension ViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let widthSize = view.frame.width
-        let cellSize: CGSize = CGSize(width: widthSize, height: 200)
-        return cellSize
+        let cellHeight = firstCollectionView.frame.height
+        let itemSize = CGSize(width: cellHeight, height: cellHeight)
+        return itemSize
     }
 }
 

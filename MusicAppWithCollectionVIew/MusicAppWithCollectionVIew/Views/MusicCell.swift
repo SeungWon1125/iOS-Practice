@@ -35,13 +35,16 @@ class MusicCell: UICollectionViewCell {
     lazy var gradientView: UIView = {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = self.bounds
-        gradientLayer.colors = [UIColor.white.cgColor, UIColor.white.cgColor, UIColor.clear.cgColor, UIColor.clear.cgColor]
+        gradientLayer.colors = [UIColor.white.withAlphaComponent(0.8).cgColor,
+                                UIColor.white.withAlphaComponent(0.8).cgColor,
+                                UIColor.clear.cgColor,
+                                UIColor.clear.cgColor]
         gradientLayer.startPoint = CGPoint(x: 0.5, y: 1)
         gradientLayer.endPoint = CGPoint(x: 0.5, y: 0)
-        gradientLayer.locations = [0.0, 0.15, 0.5, 1.0]
+        gradientLayer.locations = [0.0, 0.2, 0.8, 1.0]
         let view = UIView()
         view.layer.insertSublayer(gradientLayer, at: 0)
-        view.alpha = 0.85
+//        view.alpha = 0.85
         return view
     }()
     
@@ -77,8 +80,7 @@ class MusicCell: UICollectionViewCell {
         }
         
         nameLabel.snp.makeConstraints { make in
-            make.leading.trailing.equalTo(gradientView).offset(10)
-            make.bottom.equalTo(gradientView).offset(-5)
+            make.leading.trailing.bottom.equalTo(gradientView).inset(10)
         }
         
     }

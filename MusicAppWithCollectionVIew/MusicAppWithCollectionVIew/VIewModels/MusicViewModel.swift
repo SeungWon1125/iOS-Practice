@@ -11,21 +11,21 @@ class MusicViewModel {
     
     let apiManager = APIService.shared // 싱글톤
     
-    var music: [Music]? {
+    // MARK: - music Array
+    var musicArray: [Music]? {
         didSet {
             print("Music didSet called")
-            onCompleted(self.music)
+            onCompleted(self.musicArray)
         }
     }
-
+    
+    // MARK: - music Image Array
+    var musicImages: [UIImage?] = []
     
     // MARK: - Data For Views
-    var MusicArray: [Music]? {
-        return music
-    }
     
     var musicCount: Int? {
-        return music?.count ?? 0
+        return musicArray?.count ?? 0
     }
     
     // MARK: - On Completed
@@ -33,18 +33,29 @@ class MusicViewModel {
 
     
     // MARK: - Api function
-    func apiTest() {
-        apiManager.fetchMusic(searchTerm: "newjeans") { result in
+    func fetchMusic(searchTerm: String) {
+        apiManager.fetchMusic(searchTerm: searchTerm) { result in
             switch result {
             case .success(let musicArray) :
                 print("성공")
                 dump(musicArray)
-                self.music = musicArray // music 배열에 결과 할당
+                self.musicArray = musicArray // music 배열에 결과 할당
+                self.musicImages = Array(repeating: nil, count: musicArray.count)
+                self.loadImage()
             case .failure :
                 print("실패 (vm)")
             }
         }
     }
     
-    // MARK: - Load Image
+    func loadImage() {
+        guard let musicArray = musicArray else { return }
+        
+        for (index, music) in musicArray.enumerated() {
+            apiManager.loadImage(imageURL: music.imageUrl) { [weak self] image in
+                self?.musicImages[index] = image
+                self?.onCompleted(self?.musicArray)
+            }
+        }
+    }
 }

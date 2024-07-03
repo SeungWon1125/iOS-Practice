@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         
         setupCollectionView()
         setupNavigationBar()
-        viewModel.apiTest()
+        viewModel.fetchMusic(searchTerm: "twice")
         
         viewModel.onCompleted = { [weak self] _ in
             DispatchQueue.main.async {
@@ -88,8 +88,12 @@ extension ViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = musicCollectionView.dequeueReusableCell(withReuseIdentifier: Cell.musicCellIdentifier, for: indexPath) as! MusicCell
-        cell.nameLabel.text = viewModel.MusicArray?[indexPath.row].songName
-//        cell.albumImageView.image = viewModel.MusicArray?[indexPath.row].imageUrl
+//        cell.nameLabel.text = viewModel.musicArray?[indexPath.row].songName
+        if let musicArray = viewModel.musicArray {
+            let music = musicArray[indexPath.item]
+            cell.nameLabel.text = music.songName
+            cell.albumImageView.image = viewModel.musicImages[indexPath.item]
+        }
         return cell
     }
 }
@@ -113,18 +117,22 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
 
 // MARK: - SearchBarDelegate
 extension ViewController: UISearchBarDelegate {
+    // 한 글자 입력되면 호출되는 함수
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
+        viewModel.fetchMusic(searchTerm: searchText)
     }
     
     // 키보드 검색 버튼이 눌리면 호출되는 함수
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let text = searchController.searchBar.text else { return }
         
+        viewModel.fetchMusic(searchTerm: text)
     }
     
     // 서치바 옆에 Cancel버튼이 눌리면 호출되는 함수
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        
+        guard let text = searchController.searchBar.text else { return }
+        viewModel.fetchMusic(searchTerm: text)
     }
 }
 

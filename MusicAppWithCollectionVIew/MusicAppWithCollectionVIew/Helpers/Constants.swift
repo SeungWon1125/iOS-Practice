@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+public struct Cell {
+    static let musicCellIdentifier = "MusicCell"
+    private init() {}
+}

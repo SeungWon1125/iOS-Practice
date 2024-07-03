@@ -138,8 +138,8 @@
 		E3FA7D242C3504FE0079A217 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E3FA7CF82C3503E80079A217 /* ViewController.swift */,
 				E3FA7D312C3506B70079A217 /* MusicCell.swift */,
+				E3FA7CF82C3503E80079A217 /* ViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

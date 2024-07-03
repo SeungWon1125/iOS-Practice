@@ -12,9 +12,11 @@ class MusicCell: UICollectionViewCell {
     // MARK: - UIComponents
     let albumImageView: UIImageView = {
         let iv = UIImageView()
+        iv.image = UIImage(named: "tempImage")
+        iv.contentMode = .scaleAspectFill
         iv.backgroundColor = .gray
         iv.layer.masksToBounds = true
-        iv.layer.cornerRadius = 10
+        iv.layer.cornerRadius = 8
         return iv
     }()
     
@@ -25,6 +27,19 @@ class MusicCell: UICollectionViewCell {
         lb.numberOfLines = 2
         lb.font = UIFont.systemFont(ofSize: 15, weight: .thin)
         return lb
+    }()
+    
+    lazy var gradientView: UIView = {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.bounds
+        gradientLayer.colors = [UIColor.white.cgColor, UIColor.white.cgColor, UIColor.clear.cgColor, UIColor.clear.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0.5, y: 1)
+        gradientLayer.endPoint = CGPoint(x: 0.5, y: 0)
+        gradientLayer.locations = [0.0, 0.15, 0.5, 1.0]
+        let view = UIView()
+        view.layer.insertSublayer(gradientLayer, at: 0)
+        view.alpha = 0.92
+        return view
     }()
     
     // MARK: - init
@@ -41,7 +56,8 @@ class MusicCell: UICollectionViewCell {
     // MARK: - Set up UI
     private func setupUI() {
         self.contentView.addSubview(albumImageView)
-        self.contentView.addSubview(nameLabel)
+        self.albumImageView.addSubview(gradientView)
+        self.gradientView.addSubview(nameLabel)
         
         
         setupConstraints()
@@ -53,9 +69,13 @@ class MusicCell: UICollectionViewCell {
             make.edges.equalToSuperview()
         }
         
+        gradientView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
         nameLabel.snp.makeConstraints { make in
-            make.leading.trailing.equalTo(albumImageView).offset(10)
-            make.bottom.equalTo(albumImageView).offset(-10)
+            make.leading.trailing.equalTo(gradientView).offset(10)
+            make.bottom.equalTo(gradientView).offset(-5)
         }
         
     }

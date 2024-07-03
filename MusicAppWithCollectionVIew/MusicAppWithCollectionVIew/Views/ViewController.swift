@@ -31,6 +31,12 @@ class ViewController: UIViewController {
         setupCollectionView()
         setupNavigationBar()
         viewModel.apiTest()
+        
+        viewModel.onCompleted = { [weak self] _ in
+            DispatchQueue.main.async {
+                self?.musicCollectionView.reloadData()
+            }
+        }
     }
     
     // MARK: - Set up NavigationBar
@@ -76,11 +82,14 @@ class ViewController: UIViewController {
 // MARK: - CollectionViewDataSource
 extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 18
+        let musicCount = viewModel.musicCount!
+        return musicCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = musicCollectionView.dequeueReusableCell(withReuseIdentifier: Cell.musicCellIdentifier, for: indexPath) as! MusicCell
+        cell.nameLabel.text = viewModel.MusicArray?[indexPath.row].songName
+//        cell.albumImageView.image = viewModel.MusicArray?[indexPath.row].imageUrl
         return cell
     }
 }

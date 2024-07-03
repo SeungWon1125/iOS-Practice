@@ -33,5 +33,28 @@ final class APIService {
         }
     }
     
+    func loadImage(imageURL: String?, completion: @escaping (UIImage?) -> Void) {
+        guard let urlString = imageURL, let url = URL(string: urlString) else {
+            completion(nil)
+            return
+        }
+        
+        AF.request(url, method: .get)
+            .validate(statusCode: 200..<300)
+            .responseData { response in
+                switch response.result {
+                case .success(let data):
+                    if let image = UIImage(data: data) {
+                        completion(image)
+                    } else {
+                        completion(nil)
+                    }
+                case .failure(let error):
+                    print("Error fetching image: \(error)")
+                    completion(nil)
+                }
+            }
+    }
+    
 }
 

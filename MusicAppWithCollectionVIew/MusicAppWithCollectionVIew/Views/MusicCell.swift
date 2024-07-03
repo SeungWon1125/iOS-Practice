@@ -10,6 +10,7 @@ import SnapKit
 
 class MusicCell: UICollectionViewCell {
     // MARK: - Properties
+//    var viewModel = MusicViewModel()
     
     // MARK: - UIComponents
     let albumImageView: UIImageView = {
@@ -40,7 +41,7 @@ class MusicCell: UICollectionViewCell {
         gradientLayer.locations = [0.0, 0.15, 0.5, 1.0]
         let view = UIView()
         view.layer.insertSublayer(gradientLayer, at: 0)
-        view.alpha = 0.92
+        view.alpha = 0.85
         return view
     }()
     

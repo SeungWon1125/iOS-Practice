@@ -9,6 +9,9 @@ import UIKit
 import SnapKit
 
 class ViewController: UIViewController {
+    // MARK: - Properties
+    var viewModel = MusicViewModel()
+    
     // MARK: - CollectionView
     private let musicCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
@@ -27,6 +30,7 @@ class ViewController: UIViewController {
         
         setupCollectionView()
         setupNavigationBar()
+        viewModel.apiTest()
     }
     
     // MARK: - Set up NavigationBar

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		E353D9682C353A91005847C8 /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = E353D9672C353A91005847C8 /* Music.swift */; };
+		E353D96B2C353BB2005847C8 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E353D96A2C353BB2005847C8 /* APIService.swift */; };
+		E353D96E2C353C4D005847C8 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E353D96D2C353C4D005847C8 /* Alamofire */; };
+		E353D9702C353C4D005847C8 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = E353D96F2C353C4D005847C8 /* AlamofireDynamic */; };
+		E353D9722C353ECC005847C8 /* MusicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E353D9712C353ECC005847C8 /* MusicViewModel.swift */; };
 		E3FA7CF52C3503E80079A217 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FA7CF42C3503E80079A217 /* AppDelegate.swift */; };
 		E3FA7CF72C3503E80079A217 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FA7CF62C3503E80079A217 /* SceneDelegate.swift */; };
 		E3FA7CF92C3503E80079A217 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FA7CF82C3503E80079A217 /* ViewController.swift */; };
@@ -41,6 +45,8 @@
 
 /* Begin PBXFileReference section */
 		E353D9672C353A91005847C8 /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
+		E353D96A2C353BB2005847C8 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		E353D9712C353ECC005847C8 /* MusicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicViewModel.swift; sourceTree = "<group>"; };
 		E3FA7CF12C3503E80079A217 /* MusicAppWithCollectionVIew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicAppWithCollectionVIew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3FA7CF42C3503E80079A217 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3FA7CF62C3503E80079A217 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +68,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E353D96E2C353C4D005847C8 /* Alamofire in Frameworks */,
+				E353D9702C353C4D005847C8 /* AlamofireDynamic in Frameworks */,
 				E3FA7D292C3505660079A217 /* SnapKit in Frameworks */,
 				E3FA7D2B2C3505660079A217 /* SnapKit-Dynamic in Frameworks */,
 			);
@@ -84,6 +92,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E353D9692C353B81005847C8 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				E353D96A2C353BB2005847C8 /* APIService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		E3FA7CE82C3503E80079A217 = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +125,7 @@
 			children = (
 				E3FA7CF42C3503E80079A217 /* AppDelegate.swift */,
 				E3FA7CF62C3503E80079A217 /* SceneDelegate.swift */,
+				E353D9692C353B81005847C8 /* Networking */,
 				E3FA7D2C2C35067F0079A217 /* Helpers */,
 				E3FA7D262C35050D0079A217 /* Models */,
 				E3FA7D252C3505090079A217 /* VIewModels */,
@@ -149,6 +166,7 @@
 		E3FA7D252C3505090079A217 /* VIewModels */ = {
 			isa = PBXGroup;
 			children = (
+				E353D9712C353ECC005847C8 /* MusicViewModel.swift */,
 			);
 			path = VIewModels;
 			sourceTree = "<group>";
@@ -188,6 +206,8 @@
 			packageProductDependencies = (
 				E3FA7D282C3505660079A217 /* SnapKit */,
 				E3FA7D2A2C3505660079A217 /* SnapKit-Dynamic */,
+				E353D96D2C353C4D005847C8 /* Alamofire */,
+				E353D96F2C353C4D005847C8 /* AlamofireDynamic */,
 			);
 			productName = MusicAppWithCollectionVIew;
 			productReference = E3FA7CF12C3503E80079A217 /* MusicAppWithCollectionVIew.app */;
@@ -263,6 +283,7 @@
 			mainGroup = E3FA7CE82C3503E80079A217;
 			packageReferences = (
 				E3FA7D272C3505660079A217 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				E353D96C2C353C4D005847C8 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = E3FA7CF22C3503E80079A217 /* Products */;
 			projectDirPath = "";
@@ -307,8 +328,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3FA7D322C3506B70079A217 /* MusicCell.swift in Sources */,
+				E353D96B2C353BB2005847C8 /* APIService.swift in Sources */,
 				E3FA7CF92C3503E80079A217 /* ViewController.swift in Sources */,
 				E3FA7CF52C3503E80079A217 /* AppDelegate.swift in Sources */,
+				E353D9722C353ECC005847C8 /* MusicViewModel.swift in Sources */,
 				E3FA7CF72C3503E80079A217 /* SceneDelegate.swift in Sources */,
 				E3FA7D302C35069A0079A217 /* Constants.swift in Sources */,
 				E353D9682C353A91005847C8 /* Music.swift in Sources */,
@@ -646,6 +669,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E353D96C2C353C4D005847C8 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
 		E3FA7D272C3505660079A217 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -657,6 +688,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E353D96D2C353C4D005847C8 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E353D96C2C353C4D005847C8 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		E353D96F2C353C4D005847C8 /* AlamofireDynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E353D96C2C353C4D005847C8 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = AlamofireDynamic;
+		};
 		E3FA7D282C3505660079A217 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E3FA7D272C3505660079A217 /* XCRemoteSwiftPackageReference "SnapKit" */;

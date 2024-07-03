@@ -44,3 +44,10 @@ struct Music: Codable {
         return dateString
     }
 }
+
+
+enum NetworkError: Error {
+    case networkingError
+    case dataError
+    case parseError
+}

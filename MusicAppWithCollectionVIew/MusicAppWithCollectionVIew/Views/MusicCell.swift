@@ -9,6 +9,8 @@ import UIKit
 import SnapKit
 
 class MusicCell: UICollectionViewCell {
+    // MARK: - Properties
+    
     // MARK: - UIComponents
     let albumImageView: UIImageView = {
         let iv = UIImageView()

@@ -23,9 +23,10 @@ final class APIService {
         .validate(statusCode: 200..<300)
         .responseDecodable(of: MusicData.self) { response in
             switch response.result {
-            case .success(let musicData):
-                dump(musicData)
-                completion(.success(musicData.results))
+            case .success(let musicArray):
+//                dump(musicData)
+                print("뮤직어레이 받아오기 성공")
+                completion(.success(musicArray.results))
             case .failure(let error):
                 completion(.failure(error))
             }
